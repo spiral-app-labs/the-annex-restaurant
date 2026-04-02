@@ -487,6 +487,35 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════
+          EVENTS & SPECIALS
+      ═══════════════════════════════════════════════════ */}
+      <section className="py-28 px-4 bg-navy-900 relative">
+        <div className="max-w-6xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <p className="text-gold-400 text-sm tracking-[0.25em] uppercase font-semibold mb-3">On the Calendar</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Events &amp; <span className="gold-text">Specials</span></h2>
+            <p className="text-cream-200/60 text-base max-w-xl mx-auto">From happy hour to live music — there&apos;s always a reason to visit The ANNEX.</p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { day: "Mon–Wed", title: "Happy Hour", desc: "5–7 PM daily. Half-price appetizers and $2 off all cocktails. The best-kept weeknight secret.", emoji: "🍹" },
+              { day: "Thursday", title: "Date Night Special", desc: "3-course prix fixe for two with a bottle of wine. Reservation recommended.", emoji: "🕯️" },
+              { day: "Friday", title: "Live Music", desc: "Local artists perform live from 7–10 PM. Jazz, acoustic, and everything in between.", emoji: "🎶" },
+              { day: "Seasonal", title: "Chef&apos;s Tasting Menu", desc: "Monthly rotating Greek & Mediterranean tasting experience. Limited seatings — book early.", emoji: "🫒" },
+            ].map((e, i) => (
+              <motion.div key={e.day} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-navy-950/60 rounded-xl p-6 border border-gold-500/15 hover:border-gold-500/35 transition-all">
+                <div className="text-3xl mb-3">{e.emoji}</div>
+                <div className="text-gold-400 text-xs font-bold uppercase tracking-widest mb-2">{e.day}</div>
+                <h3 className="text-white font-bold text-lg mb-2">{e.title}</h3>
+                <p className="text-cream-200/55 text-sm leading-relaxed">{e.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════
           RESERVATION CTA
       ═══════════════════════════════════════════════════ */}
       <section className="py-28 px-4 relative overflow-hidden">
